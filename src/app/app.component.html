@@ -23,7 +23,13 @@
     >
     </app-two>
 
-    <app-three *ngSwitchCase="'three'" [appValues]="appValues"> </app-three>
+    <app-three
+      *ngSwitchCase="'three'"
+      [appValues]="appValues"
+      (next)="handleNext($event)"
+      (resetValues)="handleReset()"
+    >
+    </app-three>
 
     <div *ngIf="errors.show" class="alert alert-danger" role="alert">
       {{ errors.message }}
