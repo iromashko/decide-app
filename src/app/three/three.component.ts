@@ -16,9 +16,14 @@ export class ThreeComponent implements OnInit {
   showResults(): void {
     const appValuesCopy = this.appValues;
     const answersArray = this.appValues.answers;
+    const customArray = this.appValues.custom;
+    let result = '';
 
-    const result: string =
-      answersArray[Math.floor(Math.random() * answersArray.length)];
+    if (!this.appValues.mode) {
+      result = answersArray[Math.floor(Math.random() * answersArray.length)];
+    } else {
+      result = customArray[Math.floor(Math.random() * customArray.length)];
+    }
 
     appValuesCopy.answer = result;
 
